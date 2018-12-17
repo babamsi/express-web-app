@@ -31,4 +31,6 @@ app.get('/signup', (req, res) => {
     res.render('signup.ejs');
 })
 
-app.listen(port, () => console.log(`server running on port ${port}`))
+app.listen(port, () => {
+    console.log(`server running on port ${port}`)
+})
