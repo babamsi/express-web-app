@@ -1,0 +1,37 @@
+<%- include('containers/head') %>
+<form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input id="mail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input id="password" type="password" class="form-control"  placeholder="Password">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button id="btn" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    <script type="text/javascript">
+        var btn = document.querySelector('#btn');
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var mail = document.querySelector('#mail').value;
+            var password = document.querySelector('#password').value;
+            var check = document.querySelector('#check')
+            if(mail === '' || password === '') {
+                alert('please fill in the blanks');
+            } else {
+                if(check.checked == true) {
+                    sessionStorage.setItem('email', mail);
+                    sessionStorage.setItem('password', password)
+                    window.location.href = 'http://localhost:8081/index'
+                }
+            }
+        })
+    </script>
+<%- include('containers/footer') %>

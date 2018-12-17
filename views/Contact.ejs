@@ -1,0 +1,30 @@
+<%- include('containers/head') %>
+<form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input id="mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea id="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+        <button type="submit" class="btn btn-primary" id="btn">Submit</button>
+      </form>
+      <script type="text/javascript">
+        var btn = document.querySelector('#btn');
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var input = document.querySelector('#mail').value;
+            var message = document.querySelector('#message').value;
+            if(input === '') {
+                alert('qaanada buuxi email kaaga');
+            } else {
+                localStorage.setItem('mail', input);
+                localStorage.setItem('message', message);
+                window.location.href = 'http://localhost:8081/'
+            }
+        })
+      </script>
+
+<%- include('containers/footer') %>
